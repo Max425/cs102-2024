@@ -1,6 +1,10 @@
 name: CS102 Workflow
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - homework00
+  pull_request:
 
 jobs:
   build:
