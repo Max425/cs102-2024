@@ -1,9 +1,6 @@
 name: CS102 Workflow
 
 on:
-  push:
-    branches:
-      - homework00
   pull_request:
 
 jobs:
