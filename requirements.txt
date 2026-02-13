@@ -4,3 +4,6 @@ mypy==1.11.2
 pylint==3.3.0
 pytest==8.3.3
 
+
+rsa~=4.9.1
+pandas~=3.0.0

@@ -9,28 +9,30 @@ def draw_cell(x, y, color, size: int = 10):
     y *= size
     x1 = x + size
     y1 = y + size
-    canvas.create_rectangle(x, y, x1, y1, fill=color)
+    canvas.create_rectangle(x, y, x1, y1, fill=color, outline=color)
 
 
 def draw_maze(grid: List[List[str]], size: int = 10):
     for x, row in enumerate(grid):
         for y, cell in enumerate(row):
             if cell == " ":
-                color = 'White'
+                color = 'white'
             elif cell == "■":
                 color = 'black'
             elif cell == "X":
-                color = "red"
+                color = "blue"
+            else:
+                color = 'white'
             draw_cell(y, x, color, size)
 
 
 def show_solution():
-    maze, path = solve_maze(GRID)
-    maze = add_path_to_grid(GRID, path)
+    _, path = solve_maze(GRID)
     if path:
-        draw_maze(maze, CELL_SIZE)
+        solved_grid = add_path_to_grid(GRID, path)
+        draw_maze(solved_grid, CELL_SIZE)
     else:
-        tk.messagebox.showinfo("Message", "No solutions")
+        messagebox.showinfo("Message", "No solutions")
 
 
 if __name__ == "__main__":
